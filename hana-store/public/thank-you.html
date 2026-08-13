@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>حالة الطلب | عالم ليلى</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <a class="logo" href="/">عالم ليلى</a>
+  <nav class="main">
+    <a href="/">الرئيسية</a>
+    <a href="/shop.html">تسوّقي</a>
+  </nav>
+</header>
+
+<div class="thankyou" id="result">
+  <p>جارٍ التحقق من حالة الطلب...</p>
+</div>
+
+<script src="/js/cart.js"></script>
+<script>
+  const params = new URLSearchParams(location.search);
+  const status = params.get("status");
+  const orderId = params.get("order");
+  const el = document.getElementById("result");
+
+  if (status === "paid") {
+    clearCart();
+    el.innerHTML = `
+      <div class="icon">🎉</div>
+      <h1>تم الدفع بنجاح!</h1>
+      <p>شكراً لكِ، تم استلام طلبكِ رقم <strong>#${orderId}</strong> وسيتم تجهيزه للشحن قريباً.</p>
+      <a href="/shop.html"><button class="btn-soft">متابعة التسوق</button></a>
+    `;
+  } else {
+    el.innerHTML = `
+      <div class="icon">😕</div>
+      <h1>لم تكتمل عملية الدفع</h1>
+      <p>حدث خطأ أثناء الدفع للطلب رقم <strong>#${orderId}</strong>. يمكنكِ المحاولة مرة أخرى.</p>
+      <a href="/checkout.html"><button class="btn-soft">حاولي مرة أخرى</button></a>
+    `;
+  }
+</script>
+</body>
+</html>
