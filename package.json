@@ -1,0 +1,14 @@
+{
+  "name": "hana-store",
+  "version": "1.0.0",
+  "description": "متجر عالم ليلى لبيع الساعات النسائية - Node.js + SQLite + Moyasar",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node db.js --seed-only"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}
