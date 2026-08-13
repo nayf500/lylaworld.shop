@@ -58,3 +58,6 @@ footer {
     background-color: #333;
     color: white;
 }
+#cart-icon { position: fixed; top: 20px; left: 20px; cursor: pointer; font-size: 24px; }
+#cart-modal { position: fixed; top: 60px; left: 20px; background: white; padding: 20px; border: 1px solid #ccc; width: 250px; }
+.hidden { display: none; }
