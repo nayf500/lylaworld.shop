@@ -77,3 +77,19 @@ function checkout() {
 window.onload = function() {
     loadStoreProducts();
 };
+function toggleMenu() {
+    const menu = document.getElementById('dropdown-menu');
+    if (menu) {
+        menu.classList.toggle('hidden');
+    }
+}
+
+// إغلاق القائمة إذا ضغط المستخدم في أي مكان خارجها
+window.onclick = function(event) {
+    if (!event.target.matches('.menu-btn')) {
+        const menu = document.getElementById('dropdown-menu');
+        if (menu && !menu.classList.contains('hidden')) {
+            menu.classList.add('hidden');
+        }
+    }
+}
